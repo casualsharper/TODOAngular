@@ -1,0 +1,19 @@
+<div class="todolist">
+  <h1>TODO</h1>
+  <div>
+    <input type="text" class="form-control add-todo m-1" placeholder="Write new task here" [(ngModel)]="newTask" />
+    <button class="form-control btn btn-success m-1" (click)="addTask()">Add</button>
+  </div>
+  <ul class="list-unstyled" *ngFor="let listItem of taskList">
+    <li>
+      <div class="checkbox">
+        <label [ngClass]="listItem.checked ? 'strikethrough' : 'null'">
+          {{listItem.task}}
+        </label>
+        <input type="checkbox" class="float-right"  [(ngModel)]="listItem.checked"/>
+      </div>
+      <hr />
+    </li>
+  </ul>
+</div>
+<router-outlet></router-outlet>
